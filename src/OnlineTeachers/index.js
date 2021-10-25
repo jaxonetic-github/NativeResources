@@ -12,13 +12,13 @@ import {
   SafeAreaView,StyleSheet, Text, useColorScheme, View,
 } from 'react-native';
 
-import ResourceList from './ResourceList.js';
+import OnlineTeachersList from './onlineTeachers.js';
 //import YouTubeList from './src/youtubeList.js';
 import {initialStoreState} from '../redux/state.js';
 import RNPickerSelect from 'react-native-picker-select';
 
 //       <YouTubeList tubelist={initialStoreState.resourcesData.youTubeResources}/>
-export default function App() {
+export default function OnlineTeachers() {
 
 const selectableTeachers = initialStoreState.resourcesData.youTubeResources.filter(function hasPayload(arg) {
   return arg.payload ? true : false;
@@ -78,7 +78,7 @@ const categoryPlaceholder = {
         />
         </View>
             <View style={{height:650, flexDirection: 'row' }}>
-          <ResourceList key='scrollviewList' webResources={selectedTeacher.data} />
+          <OnlineTeachersList key='scrollviewList' webResources={selectedTeacher.data} />
       </View>
     </SafeAreaView>
   );

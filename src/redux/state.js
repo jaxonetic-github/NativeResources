@@ -151,6 +151,35 @@ const blogs = [
   {url: 'https://www.blackpast.org', title: 'Black Past .org'},
 ];
 
+
+const onlineGroups = [
+  {
+    title: 'Innerversity',
+    imageURI:
+      'https://yt3.ggpht.com/a-/AAuE7mAaea03f9JDjz9WBM6hx1QSPomQj9EXdgVcwA=s176-mo-c-c0xffffffff-rj-k-no',
+    url: 'https://www.secretenergy.com/about-us',
+        description: "Secret Energy",
+  },
+  {
+    title: 'LVX777',
+    imageURI:
+      'https://scontent.ftij1-2.fna.fbcdn.net/v/t1.6435-1/p480x480/35488036_898244010384204_1270468145248731136_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=iRhIPNnamMIAX8ydPmN&_nc_ht=scontent.ftij1-2.fna&edm=AOf6bZoEAAAA&oh=c4db2ffa94a51846f570fa8a07c7a98c&oe=616AC812',
+    url: 'https://www.youtube.com/channel/UCbf44EY8e1cT34vfpxcHSKg/videos',
+    description: "The Magus Society",
+  },
+  {
+    title: 'Phil Valentine University',
+    donationLink: {type: 'patreon', url: 'https://www.patreon.com/sanetertv'},
+    imageURI:
+      'https://yt3.ggpht.com/a-/AAuE7mAZj8RUYnGN9sYWSBt8o3DzWPKK7SUpaIt32Q=s176-c-k-c0x00ffffff-no-rj-mo',
+    url: 'https://www.youtube.com/channel/UCyYZ6-LdEXaZzxA0RsJ93GQ/videos',
+    description:
+      'SInfo on Phil Valetine\'s University',
+  },
+  
+];
+
+
 const onlineMediaContent = [
   {
     title: 'Innerversity',
@@ -164,6 +193,27 @@ const onlineMediaContent = [
       'https://scontent.ftij1-2.fna.fbcdn.net/v/t1.6435-1/p480x480/35488036_898244010384204_1270468145248731136_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=iRhIPNnamMIAX8ydPmN&_nc_ht=scontent.ftij1-2.fna&edm=AOf6bZoEAAAA&oh=c4db2ffa94a51846f570fa8a07c7a98c&oe=616AC812',
     url: 'https://www.youtube.com/channel/UCbf44EY8e1cT34vfpxcHSKg/videos',
     description: "House of Re-Awakening Minds is a holistic center for spiritual grounding, free thought, self-discovery and Moorish Science. An awakening experience for all ages.",
+  },
+  {
+    title: 'BlackMagick123',
+    imageURI:
+      'https://scontent.ftij1-2.fna.fbcdn.net/v/t1.6435-1/p480x480/35488036_898244010384204_1270468145248731136_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=iRhIPNnamMIAX8ydPmN&_nc_ht=scontent.ftij1-2.fna&edm=AOf6bZoEAAAA&oh=c4db2ffa94a51846f570fa8a07c7a98c&oe=616AC812',
+    url: 'https://www.youtube.com/channel/UCbf44EY8e1cT34vfpxcHSKg/videos',
+    description: "Black Magic discussions",
+  },
+    {
+    title: 'Dr Boyce Watkins',
+    imageURI:
+      'https://scontent.ftij1-2.fna.fbcdn.net/v/t1.6435-1/p480x480/35488036_898244010384204_1270468145248731136_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=iRhIPNnamMIAX8ydPmN&_nc_ht=scontent.ftij1-2.fna&edm=AOf6bZoEAAAA&oh=c4db2ffa94a51846f570fa8a07c7a98c&oe=616AC812',
+    url: 'https://www.youtube.com/channel/UCbf44EY8e1cT34vfpxcHSKg/videos',
+    description: "Black Magic discussions",
+  },
+  {
+    title: 'TransAtlantic Productions',
+    imageURI:
+      'https://scontent.ftij1-2.fna.fbcdn.net/v/t1.6435-1/p480x480/35488036_898244010384204_1270468145248731136_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=dbb9e7&_nc_ohc=iRhIPNnamMIAX8ydPmN&_nc_ht=scontent.ftij1-2.fna&edm=AOf6bZoEAAAA&oh=c4db2ffa94a51846f570fa8a07c7a98c&oe=616AC812',
+    url: 'https://www.youtube.com/channel/UCbf44EY8e1cT34vfpxcHSKg/videos',
+    description: "Guest Lectures",
   },
   {
     title: 'Saaneter TV',
@@ -232,8 +282,7 @@ const youTubeResources = [
     generalCategory: ['Psychology'],
     payload: AMOS_YOUTUBE_PAYLOAD_MOCK,
     images: [
-      'http://ourtimepress.com/wp-content/uploads/2016/02/dr-amos-wilson.jpg',
-      'https://i.ytimg.com/vi/mcO0-qRHzkM/hqdefault.jpg',
+      'https://i.pinimg.com/originals/3f/bf/ee/3fbfee894ff851c68247e6d6134e58c5.png',
     ],
   },
   {
@@ -352,11 +401,7 @@ const youTubeResources = [
     images: [''],
   },
 ];
-const CATEGORY_HISTORY = 'History';
-const CATEGORY_ECONOMICS = 'Economics';
-const CATEGORY_PSYCHOLOGY = 'Psychology';
-const CATEGORY_OCCULT = 'Occult';
-const CATEGORY_MOVER = 'Mover';
+
 
 const subjects = [{etymology: '', description: 'language has been weaponized'}];
 
@@ -476,6 +521,8 @@ const resourcesData = {
   youTubeResources: youTubeResources,
   webResources: webResources,
   onlineMediaContent: onlineMediaContent,
+  onlineGroups: onlineGroups, //ex. Magus Society, InnerVersity
+
   digitalResources: digitalResources,
 };
 
@@ -513,13 +560,6 @@ const sideBarData = [
   },
 ];
 
-export const categories = [
-  {title: CATEGORY_HISTORY, description: ''},
-  {title: CATEGORY_ECONOMICS, description: ''},
-  {title: CATEGORY_PSYCHOLOGY, description: ''},
-  {title: CATEGORY_OCCULT, description: ''},
-  {title: CATEGORY_MOVER, description: ''},
-];
 
 export const initialStoreState = {
   profiles: profileState,

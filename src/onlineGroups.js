@@ -7,44 +7,44 @@
  */
 
 import React, { useState } from 'react';
-import type {Node} from 'react';
 import { SafeAreaView,StyleSheet, Text, useColorScheme, View, Image, FlatList,Pressable } from 'react-native';
-import { Card,Box,NativeBaseProvider, Center} from 'native-base';
+import { Card,Box,NativeBaseProvider, Center,Left, TouchableOpacity} from 'native-base';
 import { NATIVEBASEPROVIDER_INSET, ALT_LISTVIEW_ITEM_SEPARATOR, COMMON_LISTVIEW_ITEM_SEPARATOR, COMMON_DARK_BACKGROUND,commonViewButton} from './constants.js';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {initialStoreState} from './redux/state.js';
 
 /**
- * 
- *//**
- * Display a list of Pressable (Media) records
+ * Display a list of Pressable (Group) records
  */
-export default function OnlineMedia({ navigation }) {
+export default function OnlineGroups({ navigation }) {
 
-  const renderItemFunc = ((arg)=>{
-                  return <Box style={styles.outerBoxStyle}>
-                           <Pressable  onPress={()=>{ navigation.navigate('GroupWebView',
-                  {url: arg.item.url})}}>
-                          <Center>
+const renderItemFunc = ((arg)=>{
+     return <Box style={styles.outerBoxStyle}>
+                  <Pressable onPress={()=>{ navigation.navigate('GroupWebView',
+                  {url: arg.item.url}
+                  )}}>
+                         <Center>           
                           <Text style={styles.textStyle}>{arg.item.title}</Text>
-                          <Image
-                            style={{height:115, width:110}}
+                           <Image
+                            style={styles.imageStyle}
                             source={{ uri:arg.item.imageURI }}/>
-                            <MaterialCommunityIcons name="arrow-right" color={'red'} size={30} />
-                            </Center>
-                             </Pressable>
+                            <Text style={styles.textStyle}>{arg.item.description}</Text>
+                         <MaterialCommunityIcons name="arrow-right" color={'red'} size={30} />
+                          </Center>        
+                      </Pressable>
                       </Box>});
-  return (<NativeBaseProvider initialWindowMetrics={NATIVEBASEPROVIDER_INSET}>
+
+  return (
+    <NativeBaseProvider initialWindowMetrics={NATIVEBASEPROVIDER_INSET}>
       <FlatList
-      testID='mediaList'
-        data={initialStoreState.resourcesData.onlineMediaContent}
+        data={initialStoreState.resourcesData.onlineGroups}
         renderItem={renderItemFunc}
         keyExtractor={item => item.title}
       />
-    </NativeBaseProvider>);
+    </NativeBaseProvider>
+  );
 };
-
 
 
 const styles = StyleSheet.create({

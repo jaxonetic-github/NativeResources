@@ -19,43 +19,57 @@ import {
   StatusBar, Card, CardItem,
 } from 'react-native';
 
-import {commonViewButton, COMMON_DARK_BACKGROUND, NO_PHOTO_AVAILABLE_URI, COMMON_LISTVIEW_ITEM_SEPARATOR} from '../constants.js'
+import {NATIVEBASEPROVIDER_INSET,commonViewButton, COMMON_DARK_BACKGROUND, NO_PHOTO_AVAILABLE_URI, COMMON_LISTVIEW_ITEM_SEPARATOR} from '../constants.js'
 
 import {Collapse,CollapseHeader, CollapseBody, AccordionList} from 'accordion-collapse-react-native';
 
 
-
-export default function ResourceList(props) {
+/**
+ * Display a list of Resources(video info) with details stored in Accordion View
+ */
+export default function OnlineTeachersList(props) {
       const addKey= props.webResources.map((webResources, index)=>{
-        return {webResources,...{key:(Math.random(index) * Math.random(3))+'0A'}}
-      });
+        const keyeditems = webResources.payload.items.map((item, index)=>{
+          const key=(Math.random(index) * Math.random(3))+'0A';
+          item.key= key;
+
+          return item
+        })
+        webResources.payload.items = keyeditems;
+        webResources.key = (Math.random(index) * Math.random(3))+'0A';
+
+        return webResources;});
           //Item sparator view
       const ListViewItemSeparator = () => { return (<View style={styles.listLineSeparator}/>); };
       const accordionHeader =(webResources)=> {
-         const header = (<View key={webResources.webResources.title} style={styles.listItemStyles}><ListViewItemSeparator/><View style={{backgroundColor:'maroon', color:'white'}}><Text style={{color:'white'}}>{webResources.webResources.title}</Text></View><ListViewItemSeparator/></View>);
+        //console.log('headerdata--->',webResources)
+         const header = (<View key={webResources.title} style={styles.listItemStyles}><ListViewItemSeparator/>
+            <View style={{backgroundColor:'maroon', color:'white'}}><Text role style={{color:'white'}}>{webResources.title}</Text></View>
+             <Text style={{color:'white'}}>{webResources.generalCategory}</Text>
+             <Image style={{height:115, width:115}}  source={{ uri:webResources.images[0] }}/>
+           <ListViewItemSeparator/></View>);
+         
          return header;
       }
       const accordionBody = (webResources)=>{
-                const img = webResources.webResources.images[0];
+                const img = webResources.images[0];
 
                 //displays the individual videos under the main; 
-                const payloadItems = (webResources.webResources.payload && webResources.webResources.payload.items ?
-                                      webResources.webResources.payload.items.map((payloadItems) =><View key={payloadItems.id.videoId} style={styles.innerCardStyles}>
-                                        <Image style={styles.headerImageStyles} source={{ uri:  payloadItems.snippet.thumbnails.default.url||img  }}/>
-                                              <View><Text style={{color:'white'}}>{payloadItems.snippet.channelTitle}</Text></View>
+                const payloadItems = (webResources.payload && webResources.payload.items ?
+                                      webResources.payload.items.map((payloadItems) =><View key={payloadItems.id.videoId} style={styles.innerCardStyles}>
+                                      <ListViewItemSeparator/>
+            <View><Text style={{color:'white'}}>{payloadItems.snippet.channelTitle}</Text></View>
                                               <View><Text style={{color:'white'}}>{payloadItems.snippet.title}</Text></View>
                                               </View>) :<View key={new Date()}></View>);
                               return payloadItems;
             };
-
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider initialWindowMetrics={NATIVEBASEPROVIDER_INSET}>
     <AccordionList styles={{backgroundColor:'pink', height:400, width:200}}
             list={addKey}
             header={accordionHeader}
             body={accordionBody}
-            keyExtractor={(item) =>{ console.log('keyExtractor', item.key); return item.key;}}
-            ListFooterComponent={ <View><Text>Footer</Text></View> }
+            keyExtractor={(item) =>{return item.key;}}
           /></NativeBaseProvider>
   );
 }
